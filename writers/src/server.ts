@@ -1,6 +1,8 @@
-import express, { Application, Request, Response } from 'express';
+import express, { Application } from 'express';
 import dotenv from 'dotenv';
+import bodyParser from 'body-parser'; // Import body-parser
 import connectDB from './db/db';
+import authRoutes from './routes/auth.route';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -8,12 +10,11 @@ dotenv.config();
 const app: Application = express();
 const port = process.env.PORT || 3000;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello, World!');
-});
+// Use authentication routes
+app.use('/api/auth', authRoutes);
 
 // Call connectDB function to establish MongoDB connection
 connectDB().then(() => {
