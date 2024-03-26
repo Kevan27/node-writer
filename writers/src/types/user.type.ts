@@ -1,4 +1,4 @@
-import { Document } from 'mongoose';
+import { Date, Document } from 'mongoose';
 
 interface User extends Document {
   name: string;

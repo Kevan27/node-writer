@@ -1,7 +1,7 @@
-import { model, Schema, Model, Document } from 'mongoose';
+import mongoose, { model, Schema, Model, Document } from 'mongoose';
 import UserInterface from '../types/user.type';
 
-const userSchema: Schema = new Schema({
+const userSchema: Schema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },

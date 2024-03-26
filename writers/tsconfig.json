@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "CommonJS",
+    "target": "ES2015",
+    "module": "commonjs",
     "outDir": "./dist",
     "rootDir": "./src",
+    "moduleResolution": "node",   
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    // "module": "umd"/ // For Universal Module Definition (works in AMD, CommonJS, and global environments)
+// "module": "esnext" // For ES modules (requires a module bundler like webpack)
+
   }
 }
